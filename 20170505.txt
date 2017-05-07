@@ -1,0 +1,131 @@
+1.回顾
+  项目流程
+  数据库搭建：进库  建表  字段
+              变    栏目  相似不同
+  单表  关联表
+2. insert 数据 等列顺序一样  values ()
+   insert 数据 (表头)  values ()
+3.制作接口 业务逻辑
+  直接暴露数据 不安全 连接地址 root 密码
+  
+  页面---接口php部分 ---函数操作数据库 
+      ---asp servelet .net  node.js--- 
+      用户直接访问php 得不到数据库信息 php被php.exe 翻译成html文件
+4.写接口
+  4.1如何知道要写接口
+     动态成分：  功能(数据交互)
+     常见的部分: 列表的分页 登录 注册 评论 上传  详情展示 筛选 ...  
+     以后我遇到业务的时候不在上面的栏目中。你尝试用js html先制作，制作完发现不能有数据交互，它也是接口
+  4.2怎么接口  名称 .php
+               动词(add insert del update select find)+名词东西(表名 业务单词).php
+           addUser.php
+           updateUser.php
+           delUser.php
+           selectUser.php
+
+           addNews.php
+           ...
+  4.3接口 2个东西  用户交互（输入）的个数决定咱们结果
+                   参数类型不知道 字符串
+                   参数值从页面交互中来
+      参数         返回值
+    @param 必要性   json
+    @param 必要性
+    @param 必要性
+
+    selectNews 接口
+    @param 必要性  返回值
+
+    selectHouse 接口
+    
+          [{title:"df",cnt:"dff",data:"df",src:"df"},{},{}]
+  4.4写接口php  zend phpstorm dw
+       一个php接口文件相当于js 函数
+function chg(str){ alert(str) return str}
+   chg(34)
+  
+  4.5 完整
+     header("Content-Type:application/json;charset=UTF-8");
+     输入
+        都包含数据库操作
+        循环选择
+     输出
+  4.6 mysql
+      mysqli
+   mysqli_connect("地址","用户","密码","库","端口") //数据库连接
+   mysqli_query("set NAMES UTF8")//set NAMES UTF8
+   mysqli_query()//查询操作
+   mysqli_close($con);
+  4.7 纠正
+    输出 输入写完后 测试一下
+    做数据库的连接和编码设置  测试数据库连接
+    var_dump() 格式化输出
+    写sql语句(先写固定死的语句现在cmd中执行并且检查下成功)
+              拷贝到php中当一个字符串
+              固定死值再替换变量
+    数据库关闭
+数据库 utf8  php文件 utf8  浏览器 utf8
+     
+  addUser.php
+  addNews.php
+  addxx.php
+  addRen.php
+  delUser.php
+  delNews.php
+  delRen.php
+  
+  updateUser.php
+  updateNews.php
+  updateAgent.php 
+  updateRen.php
+
+  selectNews.php
+  selectUser.php
+  selectAgent.php
+  selectRen.php
+  selectArea.php
+  
+
+如何根据项目判断进库
+               建立表
+               字段
+
+接口:数据库 
+     数据增删改查
+  2个：参数   返回值 {status:"OK",data:[{},{}]}
+                                  data:{}
+
+5.测试接口
+6.使用接口
+
+库?表?字段?
+ 接口*4?   32个
+ajax  DOM操作
+
+
+ $row[]
+
+{"aa":"123","bb":"45"}
+
+echo "{\"aa\":\"123\",\"bb\":\"45\"}";
+
+echo "{\"aa\":\"".$row."\",\"bb\":\"45\"}";
+
+
+
+
+echo "{\"dd\":\"\",\"d2f\":\"".$ddd."\"}";
+
+"{\"status\":\"FALSE\",\"data\":{\"errorCode\":\"".$row[1]."\"}}"
+
+
+
+
+小结
+  select * from tnews order by Tdate DESC limit 2,3
+
+
+
+
+
+
